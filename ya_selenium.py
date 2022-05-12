@@ -5,7 +5,7 @@ from auth_data import ya_username, ya_password
 
 def ya_authorization(username, password):
     url = 'https://passport.yandex.ru/auth/'
-    driver = webdriver.Chrome(executable_path=r'D:\Py3\netology\py_54\PY_ADVANCED\Task_6\chromedriver\chromedriver.exe')
+    driver = webdriver.Chrome(executable_path=r'chromedriver/chromedriver.exe')
 
     try:
         driver.get(url=url)
