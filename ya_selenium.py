@@ -5,7 +5,7 @@ from auth_data import ya_username, ya_password
 
 def ya_authorization(username, password):
     url = 'https://passport.yandex.ru/auth/'
-    driver = webdriver.Chrome(executable_path=r'chromedriver/chromedriver.exe')
+    driver = webdriver.Chrome(executable_path=r'D:\Py3\netology\py_54\PY_ADVANCED\Task_6\chromedriver\chromedriver.exe')
 
     try:
         driver.get(url=url)
@@ -27,10 +27,13 @@ def ya_authorization(username, password):
         login_button = driver.find_element_by_id('passp:sign-in').click()
         time.sleep(5)
 
+        test_button =driver.find_element_by_class_name('PageNavigation-linkTitle').click()
+        time.sleep(2)
+
         return f'Авторизация для {username} прошла успешно!'
 
     except Exception as ex:
-        return ex
+        return 'Ошибка авторизации'
 
     finally:
         driver.close()

@@ -9,6 +9,10 @@ class TestFunctions(unittest.TestCase):
     def tearDown(self) -> None:
         print('tearDown --> work')
 
-    def test_ya_authorization(self):
+    def test_ya_authorization_1(self):
         self.assertEqual(ya_authorization(ya_username, ya_password),
                          f'Авторизация для {ya_username} прошла успешно!')
+
+    def test_ya_authorization_2(self):
+        self.assertEqual(ya_authorization('purumpumpum@gmail.com', 'password'),
+                         'Ошибка авторизации')

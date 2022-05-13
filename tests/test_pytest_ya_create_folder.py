@@ -34,3 +34,16 @@ def test_create_folder_2(name_f: str):
             list_folder.append(item['name'])
 
     assert name_f in list_folder
+
+
+@pytest.mark.parametrize('name_f', fixtures_2)
+def test_create_folder_3(name_f: str):
+    url = "https://cloud-api.yandex.net/v1/disk/resources"
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': 'OAuth {}'.format(token)
+    }
+    params = {'path': name_f}
+    response = requests.delete(url, headers=headers, params=params)
+
+    assert response.status_code == 204
